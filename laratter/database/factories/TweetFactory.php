@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Tweet;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,10 @@ class TweetFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(),
+            'tweet' => $this->faker->text(200),
+            // sentenceプロパティは、ランダムな文章を生成します。textプロパティを使うこともできます。
+            // textプロパティは、ランダムなテキストを生成します。文字数を指定することもできます。
         ];
     }
 }
